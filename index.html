@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mathieu Bellini — Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <meta name="description" content="Portfolio-CV de Mathieu Bellini — Data/BI Analyst (Power BI, Tableau, Python)" />
+</head>
+<body>
+<header class="container header">
+  <nav class="nav">
+    <a class="brand" href="./">MB</a>
+    <div class="nav-links">
+      <a href="./projects.html">Projets</a>
+      <a href="./cv.html">CV</a>
+      <a href="mailto:mathieu.bellini123@gmail.com">Contact</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <img class="avatar" src="assets/img/portrait.jpg" alt="Portrait" />
+    <div class="hero-text">
+      <h1>Mathieu Bellini</h1>
+      <p class="subtitle">Data / BI Analyst — Power BI • Tableau • Python</p>
+      <p class="tags">Houilles (FR) · Français/Anglais · AMHE, Tennis, Data storytelling</p>
+      <div class="cta">
+        <a class="btn" href="./projects.html">Voir les projets</a>
+        <a class="btn ghost" href="./CV_Mathieu_Bellini.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/mathieu-bellini" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Skills -->
+  <section>
+    <h2>Compétences clés</h2>
+    <div class="skills">
+      <div class="skill"><span>Power BI (DAX/Model)</span><div class="bar"><div style="width:80%"></div></div></div>
+      <div class="skill"><span>Tableau (viz)</span><div class="bar"><div style="width:60%"></div></div></div>
+      <div class="skill"><span>KNIME (automation)</span><div class="bar"><div style="width:80%"></div></div></div>
+      <div class="skill"><span>Python (pandas)</span><div class="bar"><div style="width:60%"></div></div></div>
+      <div class="skill"><span>SQL</span><div class="bar"><div style="width:40%"></div></div></div>
+      <div class="skill"><span>Storytelling / UX</span><div class="bar"><div style="width:80%"></div></div></div>
+    </div>
+  </section>
+
+  <!-- Projects grid -->
+  <section>
+    <h2>Projets récents</h2>
+    <div id="projects" class="cards"></div>
+    <div class="center"><a class="btn" href="./projects.html">Tous les projets</a></div>
+  </section>
+
+  <!-- Training videos -->
+  <section>
+    <h2>Vidéos de formation</h2>
+    <ul class="bullets">
+      <li><strong>Tableau de bord de veille (Power BI)</strong> — <em>vidéo à venir</em> (script prêt).</li>
+      <li><strong>Portfolio-CV interactif (Power BI)</strong> — <em>vidéo à venir</em> (script prêt).</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="container footer">
+  <p>© <span id="y"></span> Mathieu Bellini — <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a></p>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Load projects
+  fetch('data/projects.json')
+    .then(r => r.json())
+    .then(items => {
+      const root = document.getElementById('projects');
+      root.innerHTML = items.slice(0,6).map(p => `
+        <article class="card">
+          <img src="${p.thumbnail}" alt="${p.project}" />
+          <div class="card-body">
+            <h3>${p.project}</h3>
+            <p class="meta">${p.year} · ${p.role} · ${p.tools}</p>
+            <p>${p.highlights}</p>
+            <div class="links">
+              ${p.link_demo ? `<a href="${p.link_demo}" target="_blank">Démo</a>` : `<span class="muted">Démo bientôt</span>`}
+              ${p.link_repo ? `<a href="${p.link_repo}" target="_blank">Repo</a>` : `<span class="muted">Repo bientôt</span>`}
+            </div>
+          </div>
+        </article>
+      `).join('');
+    });
+</script>
+</body>
+</html>
