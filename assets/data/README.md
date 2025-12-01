@@ -32,7 +32,7 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 - Liens de publication des dashboards (page CV, section Dashboards)
 - Vidéos de formation (liens YouTube ou fichiers)
 
-'''mermaid
+```mermaid
 
 gantt
     title Aéroworld — Diagramme de Gantt (MVP)
@@ -54,5 +54,5 @@ gantt
     section L5 — Vidéo & Doc
     Script + enregistrement + README : l5, after l4, 0.5d
 
-   '''
+```
 
