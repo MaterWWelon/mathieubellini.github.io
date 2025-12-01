@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#F5F7FA"/>
+  <rect x="0" y="0" width="1200" height="220" fill="#1499CC"/>
+  <g fill="#1499CC">
+    <rect x="60" y="505" width="40" height="85"/>
+    <rect x="122" y="465" width="40" height="125"/>
+    <rect x="184" y="445" width="40" height="145"/>
+    <rect x="246" y="520" width="40" height="70"/>
+    <rect x="308" y="480" width="40" height="110"/>
+    <rect x="370" y="450" width="40" height="140"/>
+    <rect x="432" y="520" width="40" height="70"/>
+    <rect x="494" y="500" width="40" height="90"/>
+    <rect x="556" y="475" width="40" height="115"/>
+    <rect x="618" y="455" width="40" height="135"/>
+  </g>
+  <!-- path flow -->
+  <g fill="none" stroke="#1499CC" stroke-width="8">
+    <polyline points="820,340 900,360 980,320 1060,360 980,420 900,400 820,450" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g fill="#1499CC" opacity="0.35">
+    <circle cx="900" cy="360" r="10"/>
+    <circle cx="980" cy="320" r="10"/>
+    <circle cx="980" cy="420" r="10"/>
+    <circle cx="820" cy="340" r="10"/>
+    <circle cx="820" cy="450" r="10"/>
+  </g>
+</svg>
