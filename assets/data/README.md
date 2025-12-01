@@ -32,13 +32,15 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 - Liens de publication des dashboards (page CV, section Dashboards)
 - Vidéos de formation (liens YouTube ou fichiers)
 
+'''mermaid
+
 gantt
     title Aéroworld — Diagramme de Gantt (MVP)
     dateFormat  YYYY-MM-DD
     axisFormat  %d/%m
 
     section L1 — Setup
-    Repo Pages + squelette HTML/CSS/JS :active,  l1, 2025-12-01, 0.5d
+    Repo Pages + squelette HTML/CSS/JS :active, l1, 2025-12-01, 0.5d
 
     section L2 — Veille
     Collecte 20+ articles + Excel normalisé + mesures : l2, after l1, 1d
@@ -51,3 +53,6 @@ gantt
 
     section L5 — Vidéo & Doc
     Script + enregistrement + README : l5, after l4, 0.5d
+
+   '''
+
