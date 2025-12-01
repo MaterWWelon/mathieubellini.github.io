@@ -34,10 +34,16 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 
 ```mermaid
 
+```mermaid
+%%{init: {
+  "theme": "default",
+  "gantt": { "todayMarker": "stroke-width:2", "topPadding": 50, "leftPadding": 100 }
+}}%%
 gantt
     title Aéroworld — Diagramme de Gantt (MVP)
     dateFormat  YYYY-MM-DD
     axisFormat  %d/%m
+    todayMarker stroke:#e74c3c,stroke-width:2
 
     section L1 — Setup
     Repo Pages + squelette HTML/CSS/JS :active, l1, 2025-12-01, 0.5d
@@ -46,13 +52,12 @@ gantt
     Collecte 20+ articles + Excel normalisé + mesures : l2, after l1, 1d
 
     section L3 — Dashboards
-    Visuels + KPIs + filtres (Power BI / Tableau) : l3, after l2, 1.5d
+    Visuels + KPIs + filtres (Power BI / Tableau) :crit, l3, after l2, 1.5d
 
     section L4 — Portfolio
     Fiches projets + routes + CV : l4, after l3, 1d
 
     section L5 — Vidéo & Doc
     Script + enregistrement + README : l5, after l4, 0.5d
-
 ```
 
