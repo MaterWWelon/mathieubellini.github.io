@@ -34,7 +34,6 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 
 ```mermaid
 
-```mermaid
 %%{init: {
   "theme": "default",
   "gantt": { "todayMarker": "stroke-width:2", "topPadding": 50, "leftPadding": 100 }
