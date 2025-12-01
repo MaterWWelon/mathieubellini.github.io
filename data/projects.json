@@ -7,7 +7,7 @@
     "year":2025,
     "highlights":"Alerte écart coûts (≥15%), refactor en schéma en étoile",
     "impact":"DAX plus rapide & KPIs clairs",
-    "thumbnail":"assets/img/p07.jpg",
+    "thumbnail":"assets/img/p07.svg",
     "link_demo":"",
     "link_repo":""
   },
@@ -19,7 +19,7 @@
     "year":2025,
     "highlights":"Vue exécutive 3 pages, navigation par bookmarks",
     "impact":"Pitch recruteur en 2 minutes",
-    "thumbnail":"assets/img/p08.jpg",
+    "thumbnail":"assets/img/p08.svg",
     "link_demo":"",
     "link_repo":""
   },
@@ -31,7 +31,7 @@
     "year":2025,
     "highlights":"Rule Engine patterns, export CSV reproductible",
     "impact":"Process audit-ready",
-    "thumbnail":"assets/img/p09.jpg",
+    "thumbnail":"assets/img/p09.svg",
     "link_demo":"",
     "link_repo":""
   },
@@ -43,7 +43,7 @@
     "year":2025,
     "highlights":"Monde → Continent → Pays + KPIs",
     "impact":"Identification de 14 pays prioritaires",
-    "thumbnail":"assets/img/p10.jpg",
+    "thumbnail":"assets/img/p10.svg",
     "link_demo":"",
     "link_repo":""
   },
@@ -55,7 +55,7 @@
     "year":2025,
     "highlights":"Cartes réutilisables, liens vers dashboards",
     "impact":"Présentation accélérée",
-    "thumbnail":"assets/img/p11.jpg",
+    "thumbnail":"assets/img/p11.svg",
     "link_demo":"",
     "link_repo":""
   },
@@ -67,7 +67,7 @@
     "year":2025,
     "highlights":"Boutons + bookmarks, page KPI d’atterrissage",
     "impact":"Navigation sans friction",
-    "thumbnail":"assets/img/p12.jpg",
+    "thumbnail":"assets/img/p12.svg",
     "link_demo":"",
     "link_repo":""
   }
