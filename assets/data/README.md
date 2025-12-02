@@ -25,6 +25,8 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 - Portrait → `assets/img/portrait.jpg`  
 - CV PDF → `CV_Mathieu_Bellini.pdf`
 
+[![Voir la vidéo Loom](assets/img/loom_thumb.png)](https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648 "Ouvrir la vidéo Loom")
+
 ## À faire plus tard (placeholders déjà prévus)
 
 - Miniatures réelles des projets (`assets/img/p*.jpg`)  
