@@ -27,6 +27,8 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 
 ### Documents
 - [Analyse du besoin métier client — Aéroworld (Word)](/assets/docs/Analyse_du_besoin_métier_client.docx)
+- [Cahier des charges — Aéroworld (Word)](assets/docs/Cahier_des_charges.docx)
+
 
 [![Voir la vidéo Loom](assets/img/loom_thumb.png)](https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648 "Ouvrir la vidéo Loom")
 
