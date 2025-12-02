@@ -164,5 +164,24 @@
       .catch(err => console.error('Erreur chargement projects.json', err));
   </script>
 
+<script>
+(function(){
+  function setupSkills(){
+    document.querySelectorAll('.skill').forEach(el=>{
+      const lvl = Math.max(0, Math.min(100, parseInt(el.getAttribute('data-level'),10) || 0));
+      const fill = el.querySelector('.bar .fill');
+      const val  = el.querySelector('.value');
+      if (fill) fill.style.width = lvl + '%';
+      if (val)  val.textContent = lvl + '%';
+    });
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setupSkills);
+  } else {
+    setupSkills();
+  }
+})();
+</script>
+  
 </body>
 </html>
