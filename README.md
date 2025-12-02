@@ -37,6 +37,10 @@ Stack : **Power BI · Tableau · Python (pandas) · KNIME · SQL**
 
 ## 📑 Documents
 
+## 📚 Documentation
+
+- [Documentation — Portfolio (Word)](assets/docs/Documentation.docx)
+
 - **Analyse du besoin métier client — Aéroworld (Word)**  
   [`/assets/docs/Analyse_du_besoin_métier_client.docx`](assets/docs/Analyse_du_besoin_métier_client.docx)
 
