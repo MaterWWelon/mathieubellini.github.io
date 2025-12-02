@@ -1,156 +1,148 @@
 <!doctype html>
-
-<script>
-  (function initSkills(){
-    document.querySelectorAll('[data-skill][data-level]').forEach(el => {
-      const lvl = parseInt(el.getAttribute('data-level'), 10) || 0;
-      el.style.setProperty('--w', `${Math.max(0, Math.min(100, lvl))}%`);
-    });
-  })();
-</script>
-
-fetch('./data/projects.json')
-
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mathieu Bellini — Portfolio</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="../assets/img/p07.svg" />
-  <meta name="description" content="Portfolio-CV de Mathieu Bellini : Data / BI Analyst — Power BI, Tableau, Python, KNIME."/>
+
+  <!-- (Optionnel) petite icône : tu peux mettre un autre fichier si tu veux -->
+  <link rel="icon" href="assets/img/p07.svg" type="image/svg+xml" />
+
+  <meta name="description"
+        content="Portfolio-CV de Mathieu Bellini · Data / BI Analyst · Power BI, Tableau, Python, KNIME." />
 </head>
 <body>
 
+  <!-- =================== NAV / ENTÊTE =================== -->
   <header class="topbar">
     <nav class="nav">
       <a class="brand" href="./index.html">MB</a>
-      <div class="nav-links">
-        <a href="./projects.html">Projets</a>
-        <a href="./cv.html">CV</a>
-        <a href="mailto:mathieu.bellini123@gmail.com">Contact</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="./cv.html">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="container">
+  <!-- =================== HERO =================== -->
+  <main>
     <section class="hero">
-      <img class="avatar" src="../assets/img/photo_id.jpg" alt="Portrait — Mathieu Bellini" />
-      <div class="hero-text">
+      <div class="hero-left">
+        <img class="avatar" src="assets/img/photo_id.jpg" alt="Portrait — Mathieu Bellini"
+             onerror="this.style.visibility='hidden'" />
+      </div>
+      <div class="hero-right">
         <h1>Mathieu Bellini</h1>
-        <p>Data / BI Analyst — <strong>Power BI</strong> • <strong>Tableau</strong> • <strong>Python</strong></p>
-        <p>Houilles (FR) • Français/Anglais • AMHE, Tennis, Data storytelling</p>
-        <div class="hero-cta">
-          <a class="btn" href="./projects.html">Voir les projets</a>
+        <p class="subtitle">
+          Data / BI Analyst — <strong>Power BI</strong> • <strong>Tableau</strong> • <strong>Python</strong>
+        </p>
+        <p class="location">
+          Houilles (FR) • Français/Anglais • AMHE, Tennis, Data storytelling
+        </p>
+        <div class="cta">
+          <a class="btn" href="#projects">Voir les projets</a>
           <a class="btn ghost" href="./cv.html">Télécharger le CV</a>
-          <a class="btn ghost" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
 
+    <!-- =================== COMPÉTENCES =================== -->
     <section class="skills">
       <h2>Compétences clés</h2>
-      <div class="grid skills-grid">
-        <div class="skill">
-          <span>Power BI (DAX/Model)</span>
-          <div class="bar"><i style="width:78%"></i></div>
-        </div>
-        <div class="skill">
-          <span>Tableau (viz)</span>
-          <div class="bar"><i style="width:86%"></i></div>
-        </div>
-        <div class="skill">
-          <span>KNIME (automation)</span>
-          <div class="bar"><i style="width:80%"></i></div>
-        </div>
-        <div class="skill">
-          <span>Python (pandas)</span>
-          <div class="bar"><i style="width:80%"></i></div>
-        </div>
-        <div class="skill">
-          <span>SQL</span>
-          <div class="bar"><i style="width:60%"></i></div>
-        </div>
-        <div class="skill">
-          <span>Storytelling / UX</span>
-          <div class="bar"><i style="width:92%"></i></div>
-        </div>
+
+      <!--
+        data-skill  : libellé
+        data-level  : niveau en % (0–100)
+        Le JS ci-dessous remplit la largeur via la var CSS --w
+      -->
+      <div class="skill" data-skill="Power BI (DAX/Model)" data-level="85">
+        <div class="bar"><span class="fill"></span></div>
+      </div>
+
+      <div class="skill" data-skill="Tableau (viz)" data-level="80">
+        <div class="bar"><span class="fill"></span></div>
+      </div>
+
+      <div class="skill" data-skill="KNIME (automation)" data-level="75">
+        <div class="bar"><span class="fill"></span></div>
+      </div>
+
+      <div class="skill" data-skill="Python (pandas)" data-level="70">
+        <div class="bar"><span class="fill"></span></div>
+      </div>
+
+      <div class="skill" data-skill="SQL" data-level="65">
+        <div class="bar"><span class="fill"></span></div>
+      </div>
+
+      <div class="skill" data-skill="Storytelling / UX" data-level="90">
+        <div class="bar"><span class="fill"></span></div>
       </div>
     </section>
 
-    <section class="projects">
+    <!-- =================== PROJETS (dynamiques) =================== -->
+    <section id="projects" class="projects">
       <h2>Projets récents</h2>
-      <div class="cards">
-        <article class="card">
-          <a href="./projects.html#p-cost-alerts">
-            <img src="../assets/img/p07.svg" alt="Miniature" />
-            <h3>Project Cost Alerts — Star Schema</h3>
-            <p class="meta">2025 · BI Analyst · Power BI, DAX</p>
-            <p class="desc">Alerte écarts coûts (≥15%), refactor en schéma en étoile</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="./projects.html#p-exec-dashboard">
-            <img src="../assets/img/p08.svg" alt="Miniature" />
-            <h3>Executive Dashboard — Direction</h3>
-            <p class="meta">2025 · BI Analyst · Power BI</p>
-            <p class="desc">Vue exécutive 3 pages, navigation par bookmarks</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="./projects.html#p-gender-index">
-            <img src="../assets/img/p09.svg" alt="Miniature" />
-            <h3>Gender Equality Index — KNIME Workflow</h3>
-            <p class="meta">2025 · Data Analyst · KNIME, Python</p>
-            <p class="desc">Rule Engine patterns, export CSV reproductible</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="./projects.html#p-water">
-            <img src="../assets/img/p10.svg" alt="Miniature" />
-            <h3>Water &amp; Stability — 3 Tableau Views</h3>
-            <p class="meta">2025 · Data Viz · Tableau</p>
-            <p class="desc">Monde → Continent → Pays + KPIs</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="./projects.html#p-catalog">
-            <img src="../assets/img/p11.svg" alt="Miniature" />
-            <h3>Portfolio Catalog — Project Cards</h3>
-            <p class="meta">2025 · BI / Front · Power BI</p>
-            <p class="desc">Cartes réutilisables, liens vers dashboards</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="./projects.html#p-recruiter">
-            <img src="../assets/img/p12.svg" alt="Miniature" />
-            <h3>Recruiter Path — 2-minute overview</h3>
-            <p class="meta">2025 · BI UX · Power BI</p>
-            <p class="desc">Boutons + bookmarks, page KPI d’atterrissage</p>
-          </a>
-        </article>
-      </div>
-
-      <div class="center">
-        <a class="btn" href="./projects.html">Tous les projets</a>
-      </div>
-    </section>
-
-    <section class="training">
-      <h2>Vidéos de formation</h2>
-      <a class="loom" href="https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648" target="_blank" rel="noopener">
-        <img src="../assets/img/loom_thumb.png" alt="Ouvrir la vidéo Loom" />
-      </a>
+      <!-- Le JS injecte ici les cartes depuis data/projects.json -->
+      <div id="projects-grid" class="cards"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 Mathieu Bellini — <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a></p>
+  <!-- =================== PIED DE PAGE =================== -->
+  <footer class="footer" id="contact">
+    <p>
+      © 2025 Mathieu Bellini — <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a>
+    </p>
+    <p>
+      <a href="./projects.html">Tous les projets</a> ·
+      <a href="./cv.html">CV</a>
+    </p>
   </footer>
+
+  <!-- =================== SCRIPTS =================== -->
+  <script>
+    // 1) Barres de compétences (anime la largeur suivant data-level)
+    (function initSkills() {
+      document.querySelectorAll('.skill').forEach(el => {
+        const lvl = parseInt(el.getAttribute('data-level'), 10) || 0;
+        const label = el.getAttribute('data-skill') || '';
+        el.querySelector('.fill').style.setProperty('--w', `${Math.max(0, Math.min(100, lvl))}%`);
+        // Ajoute un label avant la barre si besoin
+        if (!el.querySelector('.label')) {
+          const lab = document.createElement('div');
+          lab.className = 'label';
+          lab.textContent = label;
+          el.prepend(lab);
+        }
+      });
+    })();
+
+    // 2) Rendu des projets depuis /data/projects.json
+    fetch('./data/projects.json', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(projects => {
+        const root = document.getElementById('projects-grid');
+        if (!root) return;
+
+        root.innerHTML = projects.map(p => `
+          <article class="card" id="${p.anchor}">
+            <a href="./projects.html#${p.anchor}">
+              <img src="assets/img/${p.img}" alt="Miniature"
+                   onerror="this.src='assets/img/loom_thumb.png'"/>
+              <h3>${p.title}</h3>
+              <p class="meta">${p.year} · ${p.role} · ${p.stack}</p>
+              <p class="desc">${p.summary}</p>
+            </a>
+          </article>
+        `).join('');
+      })
+      .catch(err => console.error('Erreur chargement projects.json', err));
+  </script>
+
 </body>
 </html>
