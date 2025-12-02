@@ -92,7 +92,7 @@ Utiliser [`/data/projects.json`](data/projects.json) — le script embarqué rem
   "img": "p07.svg",
   "summary": "Alerte écarts coûts (≥15%), refactor en schéma en étoile"
 }
-
+```
 ```mermaid
 
 %%{init: { "theme": "default", "gantt": { "todayMarker": {"stroke-width": 2}, "topPadding": 50, "leftPadding": 100 }}}%%
