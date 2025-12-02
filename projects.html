@@ -1,76 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projets — Mathieu Bellini</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="../assets/style.css" />
 </head>
 <body>
-<header class="container header">
-  <nav class="nav">
-    <a class="brand" href="./">MB</a>
-    <div class="nav-links">
-      <a href="./projects.html" class="active">Projets</a>
-      <a href="./cv.html">CV</a>
-    </div>
-  </nav>
-  <h1>Projets</h1>
-</header>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="./index.html">MB</a>
+      <div class="nav-links">
+        <a class="active" href="./projects.html">Projets</a>
+        <a href="./cv.html">CV</a>
+      </div>
+    </nav>
+  </header>
 
-<main class="container">
-  <div class="filters">
-    <label>Année
-      <select id="f-year">
-        <option value="">Toutes</option>
-        <option>2025</option>
-      </select>
-    </label>
-    <label>Outils
-      <input id="f-tools" placeholder="Power BI, Tableau, KNIME..." />
-    </label>
-  </div>
+  <main class="container">
+    <h1>Projets</h1>
 
-  <div id="list" class="cards"></div>
-</main>
-
-<footer class="container footer">
-  <p>© <span id="y"></span> Mathieu Bellini</p>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-  let DATA = [];
-  const $year = document.getElementById('f-year');
-  const $tools = document.getElementById('f-tools');
-  const $list = document.getElementById('list');
-
-  function render() {
-    const y = $year.value.trim();
-    const t = $tools.value.trim().toLowerCase();
-    const items = DATA.filter(p =>
-      (y === '' || String(p.year) === y) &&
-      (t === '' || p.tools.toLowerCase().includes(t))
-    );
-    $list.innerHTML = items.map(p => `
-      <article class="card">
-        <img src="${p.thumbnail}" alt="${p.project}" />
-        <div class="card-body">
-          <h3>${p.project}</h3>
-          <p class="meta">${p.year} · ${p.role} · ${p.tools}</p>
-          <p>${p.highlights}</p>
-          <p class="muted">${p.impact}</p>
-          <div class="links">
-            ${p.link_demo ? `<a href="${p.link_demo}" target="_blank">Démo</a>` : `<span class="muted">Démo bientôt</span>`}
-            ${p.link_repo ? `<a href="${p.link_repo}" target="_blank">Repo</a>` : `<span class="muted">Repo bientôt</span>`}
-          </div>
-        </div>
+    <div id="cards" class="cards">
+      <!-- Si jamais JS est bloqué, on laisse 6 cartes statiques -->
+      <article id="p-cost-alerts" class="card">
+        <img src="../assets/img/p07.svg" alt="">
+        <h3>Project Cost Alerts — Star Schema</h3>
+        <p class="meta">2025 · BI Analyst · Power BI, DAX</p>
+        <p class="desc">Alerte écarts coûts (≥15%), refactor en schéma en étoile</p>
       </article>
-    `).join('');
-  }
 
-  fetch('data/projects.json').then(r => r.json()).then(d => { DATA = d; render(); });
-  $year.onchange = $tools.oninput = render;
-</script>
+      <article id="p-exec-dashboard" class="card">
+        <img src="../assets/img/p08.svg" alt="">
+        <h3>Executive Dashboard — Direction</h3>
+        <p class="meta">2025 · BI Analyst · Power BI</p>
+        <p class="desc">Vue exécutive 3 pages, navigation par bookmarks</p>
+      </article>
+
+      <article id="p-gender-index" class="card">
+        <img src="../assets/img/p09.svg" alt="">
+        <h3>Gender Equality Index — KNIME Workflow</h3>
+        <p class="meta">2025 · Data Analyst · KNIME, Python</p>
+        <p class="desc">Rule Engine patterns, export CSV reproductible</p>
+      </article>
+
+      <article id="p-water" class="card">
+        <img src="../assets/img/p10.svg" alt="">
+        <h3>Water &amp; Stability — 3 Tableau Views</h3>
+        <p class="meta">2025 · Data Viz · Tableau</p>
+        <p class="desc">Monde → Continent → Pays + KPIs</p>
+      </article>
+
+      <article id="p-catalog" class="card">
+        <img src="../assets/img/p11.svg" alt="">
+        <h3>Portfolio Catalog — Project Cards</h3>
+        <p class="meta">2025 · BI / Front · Power BI</p>
+        <p class="desc">Cartes réutilisables, liens vers dashboards</p>
+      </article>
+
+      <article id="p-recruiter" class="card">
+        <img src="../assets/img/p12.svg" alt="">
+        <h3>Recruiter Path — 2-minute overview</h3>
+        <p class="meta">2025 · BI UX · Power BI</p>
+        <p class="desc">Boutons + bookmarks, page KPI d’atterrissage</p>
+      </article>
+    </div>
+
+    <details class="mt">
+      <summary>Charger dynamiquement depuis <code>/data/projects.json</code></summary>
+      <p>Ton dépôt contient <code>/data/projects.json</code>. Le script ci-dessous remplace les cartes statiques si le JSON est présent (et même domaine / GitHub Pages).</p>
+      <pre><code id="status">Chargement…</code></pre>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Mathieu Bellini</p>
+  </footer>
+
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('./projects.json', {cache:'no-store'});
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const items = await res.json();
+
+        const host = '../assets/img/';
+        const wrap = document.getElementById('cards');
+        wrap.innerHTML = '';
+
+        items.forEach(p => {
+          const a = document.createElement('article');
+          a.className = 'card';
+          a.id = p.anchor || '';
+          a.innerHTML = `
+            <img src="${host}${p.img}" alt="">
+            <h3>${p.title}</h3>
+            <p class="meta">${p.year} · ${p.role} · ${p.stack}</p>
+            <p class="desc">${p.summary}</p>
+          `;
+          wrap.appendChild(a);
+        });
+
+        const st = document.getElementById('status');
+        if (st) st.textContent = 'Chargé depuis projects.json ✔';
+      } catch (e) {
+        const st = document.getElementById('status');
+        if (st) st.textContent = 'Fallback cartes statiques (projects.json non chargé)';
+      }
+    })();
+  </script>
 </body>
 </html>
