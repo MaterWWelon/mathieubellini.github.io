@@ -48,6 +48,12 @@ Stack : **Power BI · Tableau · Python (pandas) · KNIME · SQL**
 
 - [Carte mentale — Portfolio (PDF)](assets/docs/carte_mentale.pdf)
 
+### Rapports Power BI (PBIX)
+
+- [⬇️ Télécharger — Tableau de bord de veille (PBIX)](assets/pbix/Veille.pbix)
+- [⬇️ Télécharger — Portfolio interactif (PBIX)](assets/pbix/Portfolio.pbix)
+
+
 
 ---
 
