@@ -93,3 +93,28 @@ Utiliser [`/data/projects.json`](data/projects.json) — le script embarqué rem
   "summary": "Alerte écarts coûts (≥15%), refactor en schéma en étoile"
 }
 
+```mermaid
+
+%%{init: { "theme": "default", "gantt": { "todayMarker": {"stroke-width": 2}, "topPadding": 50, "leftPadding": 100 }}}%%
+gantt
+  title Aéroworld — Diagramme de Gantt (MVP)
+  dateFormat  YYYY-MM-DD
+  axisFormat  %d/%m
+  todayMarker stroke:#e74c3c,stroke-width:2
+
+  section L1 — Setup
+  Repo Pages + squelette HTML/CSS/JS :active, 11, 2025-12-01, 0.5d
+
+  section L2 — Veille
+  Collecte 20+ articles + Excel normalisé + mesures : 12, after 11, 1d
+
+  section L3 — Dashboards
+  Visuels + KPIs + filtres (Power BI / Tableau) :crit, 13, after 12, 1.5d
+
+  section L4 — Portfolio
+  Fiches projets + routes + CV : 14, after 13, 1d
+
+  section L5 — Vidéo & Doc
+  Script + enregistrement + README : 15, after 14, 0.5d
+
+```
