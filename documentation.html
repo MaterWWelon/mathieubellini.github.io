@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Documentation — Portfolio / CV (Mathieu Bellini)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root{
+    --txt:#0f172a; --muted:#334155; --accent:#2563eb;
+  }
+  @media print {
+    @page { size: A4; margin: 16mm 14mm; }
+    a[href]:after { content:" <" attr(href) ">"; font-size:10px; color:#555; }
+  }
+  body{font:13px/1.5 "Segoe UI",Roboto,Inter,Arial,sans-serif;color:var(--txt);background:#fff;margin:0;padding:24px;}
+  h1{font-size:22px;margin:.2em 0 .4em 0}
+  h2{font-size:16px;margin:1.2em 0 .3em 0;border-bottom:1px solid #e5e7eb;padding-bottom:.2em}
+  p{margin:.4em 0}
+  ul{margin:.4em 0 .8em 1.2em}
+  code, pre{font-family:Consolas,ui-monospace,Menlo,monospace}
+  pre{background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:10px;overflow:auto}
+  .muted{color:var(--muted)}
+  .hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px}
+  .small{font-size:11px}
+</style>
+</head>
+<body>
+  <div class="hdr">
+    <div>
+      <h1>Documentation — Portfolio / CV (Mathieu Bellini)</h1>
+      <p class="muted small">Statique HTML/CSS/JS — Publication GitHub Pages — Intégration docs Aéroworld, Loom, PBIX</p>
+    </div>
+    <div class="small muted">Version 1.0</div>
+  </div>
+
+  <h2>1) Aperçu</h2>
+  <ul>
+    <li><strong>Site</strong> : GitHub Pages (statique)</li>
+    <li><strong>Pages</strong> : <code>index.html</code> (accueil), <code>projects.html</code> (projets), <code>cv.html</code> (CV &amp; livrables)</li>
+    <li><strong>Données</strong> : <code>data/projects.json</code> (génère les cartes)</li>
+    <li><strong>Ressources</strong> : <code>assets/img</code> (images), <code>assets/docs</code> (documents), <code>assets/pbix</code> (rapports), <code>assets/style.css</code> (styles)</li>
+  </ul>
+
+  <h2>2) Déploiement (GitHub Pages)</h2>
+  <ul>
+    <li>Pousser tous les fichiers dans le dépôt public.</li>
+    <li>Activer Pages : <em>Settings → Pages → Build and deployment → Deploy from a branch → main / (root)</em>.</li>
+    <li>Attendre 1–2 minutes pour la mise en ligne.</li>
+  </ul>
+
+  <h2>3) Structure du dépôt</h2>
+  <pre>.
+├─ index.html
+├─ projects.html
+├─ cv.html
+├─ data/
+│  └─ projects.json
+├─ assets/
+│  ├─ style.css
+│  ├─ img/
+│  │  ├─ photo_id.jpg
+│  │  ├─ loom_thumb.png
+│  │  ├─ p07.svg … p12.svg
+│  ├─ docs/
+│  │  ├─ Analyse_du_besoin_metier_client.docx
+│  │  ├─ Cahier_des_charges.docx
+│  │  └─ Carte_mentale_portfolio.pdf
+│  └─ pbix/
+│     ├─ Veille.pbix
+│     └─ Portfolio.pbix
+└─ README.md</pre>
+
+  <h2>4) Mettre à jour les projets (<code>data/projects.json</code>)</h2>
+  <p>Chaque entrée JSON génère une carte. Les images référencées doivent exister dans <code>assets/img/</code>.</p>
+  <pre>[
+  {
+    "anchor": "p-cost-alerts",
+    "title": "Project Cost Alerts — Star Schema",
+    "year": "2025",
+    "role": "BI Analyst",
+    "stack": "Power BI, DAX",
+    "img": "p07.svg",
+    "summary": "Alerte écarts coûts (≥15%), refactor en schéma en étoile"
+  }
+]</pre>
+  <ul>
+    <li><strong>anchor</strong> : identifiant pour les liens internes (<code>projects.html#anchor</code>)</li>
+    <li><strong>img</strong> : nom du fichier dans <code>assets/img/</code> (ex. <code>p07.svg</code>)</li>
+    <li><strong>Ajouter</strong> un projet : dupliquer un bloc, éditer les champs, commit/push</li>
+  </ul>
+
+  <h2>5) Compétences (barres de niveau)</h2>
+  <p><strong>HTML</strong> (exemple) :</p>
+  <pre>&lt;div class="skill" data-level="85"&gt;
+  &lt;div class="label"&gt;Power BI (DAX/Model)&lt;/div&gt;
+  &lt;div class="bar"&gt;&lt;div class="fill"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="value"&gt;85%&lt;/div&gt;
+&lt;/div&gt;</pre>
+  <p><strong>CSS</strong> minimal :</p>
+  <pre>.skill{display:grid;grid-template-columns:260px 1fr 64px;align-items:center;gap:1rem}
+.skill .bar{height:14px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+.skill .bar .fill{width:0;height:100%;
+  background:linear-gradient(90deg,#5aa0ff,#7bd6ff);
+  transition:width .8s ease}</pre>
+  <p><strong>JS</strong> (appliquer le pourcentage) :</p>
+  <pre>&lt;script&gt;
+(function(){
+  function setupSkills(){
+    document.querySelectorAll('.skill').forEach(el=>{
+      const lvl = Math.max(0, Math.min(100, parseInt(el.getAttribute('data-level'),10)||0));
+      const fill = el.querySelector('.bar .fill');
+      const val = el.querySelector('.value');
+      if (fill) fill.style.width = lvl + '%';
+      if (val)  val.textContent = lvl + '%';
+    });
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setupSkills);
+  } else { setupSkills(); }
+})();
+&lt;/script&gt;</pre>
+
+  <h2>6) Vidéo Loom</h2>
+  <ul>
+    <li>Miniature : <code>assets/img/loom_thumb.png</code></li>
+    <li>Lien : <code>https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648</code></li>
+  </ul>
+  <p><strong>Exemple Markdown (README)</strong> :</p>
+  <pre>[![Voir la vidéo Loom](assets/img/loom_thumb.png)](https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648 "Ouvrir la vidéo Loom")</pre>
+
+  <h2>7) Documents client (Aéroworld)</h2>
+  <ul>
+    <li><code>assets/docs/Analyse_du_besoin_metier_client.docx</code></li>
+    <li><code>assets/docs/Cahier_des_charges.docx</code></li>
+    <li><code>assets/docs/Carte_mentale_portfolio.pdf</code></li>
+  </ul>
+  <p><strong>Liens (README)</strong> :</p>
+  <pre>- [Analyse du besoin métier client — Aéroworld (Word)](assets/docs/Analyse_du_besoin_metier_client.docx)
+- [Cahier des charges — Aéroworld (Word)](assets/docs/Cahier_des_charges.docx)
+- [Carte mentale — Portfolio (PDF)](assets/docs/Carte_mentale_portfolio.pdf)</pre>
+
+  <h2>8) Rapports Power BI (PBIX)</h2>
+  <ul>
+    <li>Déposer dans <code>assets/pbix/</code> : <code>Veille.pbix</code>, <code>Portfolio.pbix</code></li>
+    <li>Si &gt; 100 MB : utiliser Git LFS (<code>git lfs install</code> ; <code>git lfs track "*.pbix"</code>)</li>
+  </ul>
+  <p><strong>Liens (README)</strong> :</p>
+  <pre>- [Télécharger — Tableau de bord de veille (PBIX)](assets/pbix/Veille.pbix)
+- [Télécharger — Portfolio interactif (PBIX)](assets/pbix/Portfolio.pbix)</pre>
+
+  <h2>9) Roadmap (Mermaid — optionnel)</h2>
+  <p>Bloc de référence :</p>
+  <pre>```mermaid
+gantt
+  title Aéroworld — Diagramme de Gantt (MVP)
+  dateFormat  YYYY-MM-DD
+  axisFormat  %d/%m
+  todayMarker stroke:#e74c3c,stroke-width:2
+  section L1 — Setup
+  Repo Pages + squelette HTML/CSS/JS :active, 11, 2025-12-01, 0.5d
+  section L2 — Veille
+  Collecte 20+ articles + Excel normalisé + mesures : 12, after 11, 1d
+  section L3 — Dashboards
+  Visuels + KPIs + filtres (Power BI / Tableau) :crit, 13, after 12, 1.5d
+  section L4 — Portfolio
+  Fiches projets + routes + CV : 14, after 13, 1d
+  section L5 — Vidéo & Doc
+  Script + enregistrement + README : 15, after 14, 0.5d
+```</pre>
+
+  <h2>10) Check-list de livraison</h2>
+  <ul>
+    <li><code>index.html</code> &amp; <code>projects.html</code> : liens et images OK</li>
+    <li><code>data/projects.json</code> : 6 projets min., champs complets (img existantes)</li>
+    <li><code>assets/img/</code> : portrait + miniatures p07–p12.svg</li>
+    <li><code>assets/docs/</code> : analyse, CDC, carte mentale</li>
+    <li><code>assets/pbix/</code> : Veille.pbix &amp; Portfolio.pbix (LFS si &gt;100 MB)</li>
+    <li><code>assets/style.css</code> : palette/styling validés</li>
+    <li><strong>Settings → Pages</strong> : déploiement actif</li>
+  </ul>
+
+  <h2>11) Contact</h2>
+  <ul>
+    <li>Auteur : Mathieu Bellini</li>
+    <li>Email : <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a></li>
+    <li>LinkedIn : à ajouter dans le header du site</li>
+  </ul>
+</body>
+</html>
