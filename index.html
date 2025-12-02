@@ -124,6 +124,14 @@
           el.prepend(lab);
         }
       });
+    // Ajoute le % à droite
+      document.querySelectorAll('.skill').forEach(el=>{
+        const lvl = parseInt(el.getAttribute('data-level'),10)||0;
+        let v = el.querySelector('.value');
+        if(!v){ v=document.createElement('div'); v.className='value'; el.appendChild(v); }
+        v.textContent = `${Math.max(0,Math.min(100,lvl))}%`;
+      });
+
     })();
 
     // 2) Rendu des projets depuis /data/projects.json
