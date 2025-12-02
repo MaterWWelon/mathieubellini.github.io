@@ -1,5 +1,16 @@
 <!doctype html>
+
+<script>
+  (function initSkills(){
+    document.querySelectorAll('[data-skill][data-level]').forEach(el => {
+      const lvl = parseInt(el.getAttribute('data-level'), 10) || 0;
+      el.style.setProperty('--w', `${Math.max(0, Math.min(100, lvl))}%`);
+    });
+  })();
+</script>
+
 fetch('./data/projects.json')
+
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
