@@ -25,6 +25,8 @@ Portfolio-CV statique (HTML/CSS/JS) pour GitHub Pages.
 - Portrait → assets/img/portrait.jpg
 - CV PDF → assets/docs/CV_Mathieu_Bellini.pdf   <!-- si tu mets le CV dans assets/docs -->
 
+### Documents
+- [Analyse du besoin métier client — Aéroworld (Word)](/assets/docs/Analyse_du_besoin_métier_client.docx)
 
 [![Voir la vidéo Loom](assets/img/loom_thumb.png)](https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648 "Ouvrir la vidéo Loom")
 
