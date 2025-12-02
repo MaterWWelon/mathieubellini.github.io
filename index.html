@@ -1,126 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mathieu Bellini — Portfolio</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <meta name="description" content="Portfolio-CV de Mathieu Bellini — Data/BI Analyst (Power BI, Tableau, Python)" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="icon" href="../assets/img/p07.svg" />
+  <meta name="description" content="Portfolio-CV de Mathieu Bellini : Data / BI Analyst — Power BI, Tableau, Python, KNIME."/>
 </head>
 <body>
-<header class="container header">
-  <nav class="nav">
-    <a class="brand" href="./">MB</a>
-    <div class="nav-links">
-      <a href="./projects.html">Projets</a>
-      <a href="./cv.html">CV</a>
-      <a href="mailto:mathieu.bellini123@gmail.com">Contact</a>
-    </div>
-  </nav>
-  <div class="hero">
-    <img class="avatar" src="assets/img/photo_id.jpg" alt="photo_id" />
-    <div class="hero-text">
-      <h1>Mathieu Bellini</h1>
-      <p class="subtitle">Data / BI Analyst — Power BI • Tableau • Python</p>
-      <p class="tags">Houilles (FR) · Français/Anglais · AMHE, Tennis, Data storytelling</p>
-      <div class="cta">
-        <a class="btn" href="./projects.html">Voir les projets</a>
-        <a class="btn ghost" href="./CV_Mathieu_Bellini.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/mathieu-bellini" target="_blank" rel="noopener">LinkedIn</a>
+
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="./index.html">MB</a>
+      <div class="nav-links">
+        <a href="./projects.html">Projets</a>
+        <a href="./cv.html">CV</a>
+        <a href="mailto:mathieu.bellini123@gmail.com">Contact</a>
       </div>
-    </div>
-  </div>
-</header>
+    </nav>
+  </header>
 
-<main class="container">
-  <!-- Skills -->
-  <section>
-    <h2>Compétences clés</h2>
-    <div class="skills">
-      <div class="skill"><span>Power BI (DAX/Model)</span><div class="bar"><div style="width:80%"></div></div></div>
-      <div class="skill"><span>Tableau (viz)</span><div class="bar"><div style="width:60%"></div></div></div>
-      <div class="skill"><span>KNIME (automation)</span><div class="bar"><div style="width:80%"></div></div></div>
-      <div class="skill"><span>Python (pandas)</span><div class="bar"><div style="width:60%"></div></div></div>
-      <div class="skill"><span>SQL</span><div class="bar"><div style="width:40%"></div></div></div>
-      <div class="skill"><span>Storytelling / UX</span><div class="bar"><div style="width:80%"></div></div></div>
-    </div>
-  </section>
+  <main class="container">
+    <section class="hero">
+      <img class="avatar" src="../assets/img/photo_id.jpg" alt="Portrait — Mathieu Bellini" />
+      <div class="hero-text">
+        <h1>Mathieu Bellini</h1>
+        <p>Data / BI Analyst — <strong>Power BI</strong> • <strong>Tableau</strong> • <strong>Python</strong></p>
+        <p>Houilles (FR) • Français/Anglais • AMHE, Tennis, Data storytelling</p>
+        <div class="hero-cta">
+          <a class="btn" href="./projects.html">Voir les projets</a>
+          <a class="btn ghost" href="./cv.html">Télécharger le CV</a>
+          <a class="btn ghost" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Projects grid -->
-  <section>
-    <h2>Projets récents</h2>
-    <div id="projects" class="cards"></div>
-    <div class="center"><a class="btn" href="./projects.html">Tous les projets</a></div>
-  </section>
+    <section class="skills">
+      <h2>Compétences clés</h2>
+      <div class="grid skills-grid">
+        <div class="skill">
+          <span>Power BI (DAX/Model)</span>
+          <div class="bar"><i style="width:78%"></i></div>
+        </div>
+        <div class="skill">
+          <span>Tableau (viz)</span>
+          <div class="bar"><i style="width:86%"></i></div>
+        </div>
+        <div class="skill">
+          <span>KNIME (automation)</span>
+          <div class="bar"><i style="width:80%"></i></div>
+        </div>
+        <div class="skill">
+          <span>Python (pandas)</span>
+          <div class="bar"><i style="width:80%"></i></div>
+        </div>
+        <div class="skill">
+          <span>SQL</span>
+          <div class="bar"><i style="width:60%"></i></div>
+        </div>
+        <div class="skill">
+          <span>Storytelling / UX</span>
+          <div class="bar"><i style="width:92%"></i></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Training videos -->
-  <section>
-    <h2>Vidéos de formation</h2>
-    <ul class="bullets">
-      <li><strong>Tableau de bord de veille (Power BI)</strong> — <em>vidéo à venir</em> (script prêt).</li>
-      <li><strong>Portfolio-CV interactif (Power BI)</strong> — <em>vidéo à venir</em> (script prêt).</li>
-    </ul>
-  </section>
-
-<!-- Loom embed responsive -->
-<div class="video-wrap">
-  <iframe
-    src="https://www.loom.com/embed/0c1bbddcb0a14fa798b59467d7be5648"
-    frameborder="0"
-    allowfullscreen
-    webkitallowfullscreen
-    mozallowfullscreen
-  ></iframe>
-</div>
-
-<style>
-  .video-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 960px;   /* ajuste si besoin */
-    margin: 24px auto;
-    aspect-ratio: 16 / 9; /* maintient le 16:9 */
-  }
-  .video-wrap > iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 12px; /* option esthétique */
-  }
-</style>
-  
-</main>
-
-<footer class="container footer">
-  <p>© <span id="y"></span> Mathieu Bellini — <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a></p>
-</footer>
-
-<script>
-  // Year
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Load projects
-  fetch('data/projects.json')
-    .then(r => r.json())
-    .then(items => {
-      const root = document.getElementById('projects');
-      root.innerHTML = items.slice(0,6).map(p => `
+    <section class="projects">
+      <h2>Projets récents</h2>
+      <div class="cards">
         <article class="card">
-          <img src="${p.thumbnail}" alt="${p.project}" />
-          <div class="card-body">
-            <h3>${p.project}</h3>
-            <p class="meta">${p.year} · ${p.role} · ${p.tools}</p>
-            <p>${p.highlights}</p>
-            <div class="links">
-              ${p.link_demo ? `<a href="${p.link_demo}" target="_blank">Démo</a>` : `<span class="muted">Démo bientôt</span>`}
-              ${p.link_repo ? `<a href="${p.link_repo}" target="_blank">Repo</a>` : `<span class="muted">Repo bientôt</span>`}
-            </div>
-          </div>
+          <a href="./projects.html#p-cost-alerts">
+            <img src="../assets/img/p07.svg" alt="Miniature" />
+            <h3>Project Cost Alerts — Star Schema</h3>
+            <p class="meta">2025 · BI Analyst · Power BI, DAX</p>
+            <p class="desc">Alerte écarts coûts (≥15%), refactor en schéma en étoile</p>
+          </a>
         </article>
-      `).join('');
-    });
-</script>
+
+        <article class="card">
+          <a href="./projects.html#p-exec-dashboard">
+            <img src="../assets/img/p08.svg" alt="Miniature" />
+            <h3>Executive Dashboard — Direction</h3>
+            <p class="meta">2025 · BI Analyst · Power BI</p>
+            <p class="desc">Vue exécutive 3 pages, navigation par bookmarks</p>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="./projects.html#p-gender-index">
+            <img src="../assets/img/p09.svg" alt="Miniature" />
+            <h3>Gender Equality Index — KNIME Workflow</h3>
+            <p class="meta">2025 · Data Analyst · KNIME, Python</p>
+            <p class="desc">Rule Engine patterns, export CSV reproductible</p>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="./projects.html#p-water">
+            <img src="../assets/img/p10.svg" alt="Miniature" />
+            <h3>Water &amp; Stability — 3 Tableau Views</h3>
+            <p class="meta">2025 · Data Viz · Tableau</p>
+            <p class="desc">Monde → Continent → Pays + KPIs</p>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="./projects.html#p-catalog">
+            <img src="../assets/img/p11.svg" alt="Miniature" />
+            <h3>Portfolio Catalog — Project Cards</h3>
+            <p class="meta">2025 · BI / Front · Power BI</p>
+            <p class="desc">Cartes réutilisables, liens vers dashboards</p>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="./projects.html#p-recruiter">
+            <img src="../assets/img/p12.svg" alt="Miniature" />
+            <h3>Recruiter Path — 2-minute overview</h3>
+            <p class="meta">2025 · BI UX · Power BI</p>
+            <p class="desc">Boutons + bookmarks, page KPI d’atterrissage</p>
+          </a>
+        </article>
+      </div>
+
+      <div class="center">
+        <a class="btn" href="./projects.html">Tous les projets</a>
+      </div>
+    </section>
+
+    <section class="training">
+      <h2>Vidéos de formation</h2>
+      <a class="loom" href="https://www.loom.com/share/0c1bbddcb0a14fa798b59467d7be5648" target="_blank" rel="noopener">
+        <img src="../assets/img/loom_thumb.png" alt="Ouvrir la vidéo Loom" />
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Mathieu Bellini — <a href="mailto:mathieu.bellini123@gmail.com">mathieu.bellini123@gmail.com</a></p>
+  </footer>
 </body>
 </html>
