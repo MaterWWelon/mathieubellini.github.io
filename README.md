@@ -46,6 +46,9 @@ Stack : **Power BI · Tableau · Python (pandas) · KNIME · SQL**
 - **CV (PDF)**  
   [`/assets/docs/CV_Mathieu_Bellini.pdf`](assets/docs/CV_Mathieu_Bellini.pdf)
 
+- [Carte mentale — Portfolio (PDF)](assets/docs/carte_mentale.pdf)
+
+
 ---
 
 ## 🧱 Structure du dépôt
