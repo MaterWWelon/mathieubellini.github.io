@@ -50,3 +50,46 @@ Stack : **Power BI · Tableau · Python (pandas) · KNIME · SQL**
 
 ## 🧱 Structure du dépôt
 
+
+- Les pages HTML de `/data` pointent vers les ressources avec des **chemins relatifs** `../assets/...`.
+- Les miniatures des cartes projet sont dans `assets/img/` (ex. `p07.svg`…`p12.svg`).
+
+---
+
+## 🗂️ Projets (extraits)
+
+| Miniature | Projet | Rôle / Année | Stack | Résumé |
+|---|---|---|---|---|
+| ![p07](assets/img/p07.svg) | **Project Cost Alerts — Star Schema** | BI Analyst · 2025 | Power BI, DAX | Alerte écarts coûts (≥15%), refactor en schéma en étoile |
+| ![p08](assets/img/p08.svg) | **Executive Dashboard — Direction** | BI Analyst · 2025 | Power BI | Vue exécutive 3 pages, navigation par bookmarks |
+| ![p09](assets/img/p09.svg) | **Gender Equality Index — KNIME Workflow** | Data Analyst · 2025 | KNIME, Python | Rule Engine patterns, export CSV reproductible |
+| ![p10](assets/img/p10.svg) | **Water & Stability — 3 Tableau Views** | Data Viz · 2025 | Tableau | Monde → Continent → Pays + KPIs |
+| ![p11](assets/img/p11.svg) | **Portfolio Catalog — Project Cards** | BI / Front · 2025 | Power BI | Cartes réutilisables, liens vers dashboards |
+| ![p12](assets/img/p12.svg) | **Recruiter Path — 2-minute overview** | BI UX · 2025 | Power BI | Boutons + bookmarks, page KPI d’atterrissage |
+
+> 🔗 Détails et cartes complètes : [`/data/projects.html`](data/projects.html)
+
+---
+
+## 🔁 Mettre à jour les projets
+
+Deux options :
+
+### A) Édition rapide (statique)
+Modifier directement les cartes HTML dans [`/data/projects.html`](data/projects.html).
+
+### B) Source JSON (dynamique)
+Utiliser [`/data/projects.json`](data/projects.json) — le script embarqué remplace les cartes statiques si le JSON est chargé avec succès.
+
+**Exemple d’entrée :**
+```json
+{
+  "anchor": "p-cost-alerts",
+  "title": "Project Cost Alerts — Star Schema",
+  "year": "2025",
+  "role": "BI Analyst",
+  "stack": "Power BI, DAX",
+  "img": "p07.svg",
+  "summary": "Alerte écarts coûts (≥15%), refactor en schéma en étoile"
+}
+
